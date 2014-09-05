@@ -379,8 +379,8 @@ indent yanked text (with prefix arg don't indent)."
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 
 ;; easy-kill
-(global-set-key [remap kill-ring-save] 'easy-kill)
-(global-set-key [remap mark-sexp] 'easy-mark)
+;;(global-set-key [remap kill-ring-save] 'easy-kill)
+;;(global-set-key [remap mark-sexp] 'easy-mark)
 
 ;; operate-on-number
 (require 'operate-on-number)

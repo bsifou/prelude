@@ -52,7 +52,7 @@
     discover-my-major
     diff-hl
     diminish
-    easy-kill
+    ;;easy-kill
     elisp-slime-nav
     epl
     expand-region
