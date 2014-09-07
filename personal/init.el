@@ -6,7 +6,8 @@
 ;;; Code:
 (prelude-require-packages '(column-enforce-mode
                             markdown-mode
-                            refheap))
+                            refheap
+                            multi-term))
 
 ;; highlight characters beyond 80 columns
 (column-enforce-n 80)
@@ -38,7 +39,14 @@
   (untabify (point-min) (point-max)))
 (global-set-key (kbd "s-<f2>") 'iwb)
 
-(global-set-key (kbd "C-M-SPC") 'mark-sexp)
+;;(global-set-key (kbd "C-M-SPC") 'mark-sexp)
+
+;; see http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term/
+(add-hook 'term-mode-hook
+          (lambda ()
+            (define-key term-raw-map (kbd "C-y") 'term-paste)
+            (define-key term-raw-map (kbd "s-v") 'term-paste)))
+
 
 (provide 'michiel-config)
 ;;; init.el ends here
