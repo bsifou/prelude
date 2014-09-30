@@ -47,6 +47,10 @@
             (define-key term-raw-map (kbd "C-y") 'term-paste)
             (define-key term-raw-map (kbd "s-v") 'term-paste)))
 
+(visual-line-mode) ;; probably I have hook this up to some modes
 
 (provide 'michiel-config)
 ;;; init.el ends here
+
+;; disable automatic scss compilation on save
+(custom-set-variables '(scss-compile-at-save nil))
