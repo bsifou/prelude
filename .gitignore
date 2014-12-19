@@ -23,3 +23,4 @@ tramp
 /var/pcache
 refheap.el
 games
+.mc-lists.el
