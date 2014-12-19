@@ -54,3 +54,5 @@
 
 ;; disable automatic scss compilation on save
 (custom-set-variables '(scss-compile-at-save nil))
+
+(setq prelude-whitespace nil)
