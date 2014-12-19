@@ -13,7 +13,7 @@ Emacs power users.
 
 Prelude is compatible **ONLY with GNU Emacs 24.x**. In general you're
 advised to always run Prelude with the latest Emacs - currently
-**24.3**.
+**24.4**.
 
 **Table of Contents**
 
@@ -51,7 +51,7 @@ advised to always run Prelude with the latest Emacs - currently
 	- [Problems with flyspell-mode](#problems-with-flyspell-mode)
 	- [Ugly colors in the terminal Emacs version](#ugly-colors-in-the-terminal-emacs-version)
 	- [MELPA error on initial startup](#melpa-error-on-initial-startup)
-	- [No arrow navigation in editor buffers](#no-arrow-navigation-in-editor-buffers)
+	- [Warnings on arrow navigation in editor buffers](#warnings-on-navigation-in-editor-buffers)
 	- [Customized C-a behavior](#customized-c-a-behavior)
 	- [Poor ido matching performance on large datasets](#poor-ido-matching-performance-on-large-datasets)
 	- [Windows compatibility](#windows-compatibility)
@@ -179,6 +179,7 @@ By default most of the modules that ship with Prelude are not loaded. For more i
 (require 'prelude-emacs-lisp)
 (require 'prelude-erc)
 ;; (require 'prelude-erlang)
+;; (require 'prelude-elixir)
 ;; (require 'prelude-haskell)
 (require 'prelude-js)
 ;; (require 'prelude-latex)
@@ -233,6 +234,14 @@ alias vi='emacsclient -t'
 
 The last two aliases are helpful if you're used to editing files from
 the command line using `vi(m)`.
+
+Also you can open a file with cursor on choosen line:
+
+```bash
+emacsclient somefile:1234
+```
+
+This will open file 'somefile' and set cursor on line 1234.
 
 ## Getting to know Prelude
 
@@ -407,6 +416,10 @@ If you prefer Ido in everywhere, you should not add `prelude-helm-everywhere`, s
 
 You can always reactivate Helm with `(prelude-global-helm-global-mode-on)`.
 
+**NOTICE**: In `helm-M-x`, you have to pass prefix argument *AFTER* you run `helm-M-x`,
+because your prefix argument will be displayed in the modeline when in `helm-M-x`
+buffer. Passing prefix argument **BEFORE** =helm-M-x= **has no effect**.
+
 
 #### Key-chords
 
@@ -475,10 +488,10 @@ line:
 (disable-theme 'zenburn)
 ```
 
-Or you can use another theme altogether by adding something like:
+Or you can use another theme altogether by adding something in `personal/preload` like:
 
 ```lisp
-(load-theme 'solarized-dark t)
+(setq prelude-theme 'solarized-dark)
 ```
 
 **P.S.** Solarized is not available by default - you'll have to
