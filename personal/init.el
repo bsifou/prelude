@@ -9,9 +9,12 @@
                             refheap
                             multi-term))
 
-;; highlight characters beyond 80 columns
-(column-enforce-n 80)
-(add-hook 'prog-mode-hook 'column-enforce-mode)
+(defun fci-hook ()
+  (setq-default fci-rule-column 80)
+  (setq fci-rule-color "lightgray")
+  (fci-mode 1))
+
+(add-hook 'prog-mode-hook 'fci-hook)
 
 ;; window size on startup
 (if (window-system) (set-frame-size (selected-frame) 200 56))
@@ -56,3 +59,9 @@
 (custom-set-variables '(scss-compile-at-save nil))
 
 (setq prelude-whitespace nil)
+
+;; coffeescript-mode
+(custom-set-variables '(coffee-tab-width 2))
+
+;; slim template mode
+(custom-set-variables '(slim-backspace-backdents-nesting nil))
