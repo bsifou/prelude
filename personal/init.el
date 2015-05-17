@@ -4,8 +4,7 @@
 ;;; My config
 
 ;;; Code:
-(prelude-require-packages '(column-enforce-mode
-                            markdown-mode
+(prelude-require-packages '(markdown-mode
                             refheap
                             multi-term))
 
