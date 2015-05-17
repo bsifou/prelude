@@ -11,7 +11,6 @@
 
 (defun fci-hook ()
   (setq-default fci-rule-column 80)
-  (setq fci-rule-color "lightgray")
   (fci-mode 1))
 
 (add-hook 'prog-mode-hook 'fci-hook)
