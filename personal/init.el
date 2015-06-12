@@ -63,3 +63,6 @@
 
 ;; slim template mode
 (custom-set-variables '(slim-backspace-backdents-nesting nil))
+
+;; js2mode
+(setq-default js2-basic-offset 2)

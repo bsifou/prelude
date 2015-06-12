@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "refheap" "refheap.el" (21512 54759 0 0))
+;;;### (autoloads nil "refheap" "refheap.el" (21849 52006 0 0))
 ;;; Generated autoloads from refheap.el
 
 (autoload 'refheap-paste-region "refheap" "\
@@ -25,12 +25,6 @@ Paste the current buffer to refheap. With prefix arg, paste privately.
 Paste the current buffer to a private refheap entry.
 
 \(fn)" t nil)
-
-(autoload 'refheap-paste-region-or-buffer "refheap" "\
-Paste the current region (or buffer, if no region is active) to refheap.
-With prefix arg, paste privately.
-
-\(fn &optional PRIVATE)" t nil)
 
 ;;;***
 
