@@ -27,9 +27,9 @@
 
 ;; Author: Akinori MUSHA <knu@iDaemons.org>
 ;; URL: https://github.com/knu/operate-on-number.el
+;; Package-Version: 20140522.430
 ;; Created: 15 May 2014
-;; Version: 20140522.430
-;; X-Original-Version: 1.1.0
+;; Version: 1.1.0
 ;; Keywords: editing
 
 ;;; Commentary:

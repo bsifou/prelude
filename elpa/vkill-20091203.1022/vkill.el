@@ -1,5 +1,5 @@
 ;;; vkill.el --- view and kill Unix processes from within Emacs
-;; Version: 20091203.1022
+;; Package-Version: 20091203.1022
 
 ;; Copyright (C) 1987, 1989 Kyle E. Jones
 ;; Copyright (C) 1991, 93, 96, 2000 Noah S. Friedman

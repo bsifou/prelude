@@ -6,11 +6,11 @@
 ;; Created: 03 October 2001. (as utility functions in my `.emacs' file.)
 ;;          14 March   2010. (re-written as library `volatile-highlights.el')
 ;; Keywords: emulations convenience wp
+;; Package-Version: 20141004.2240
 ;; Revision: $Id: 33de1bedfdf66672608de0f2b6c88655e15a5cd7 $
 ;; URL: http://www.emacswiki.org/emacs/download/volatile-highlights.el
 ;; GitHub: http://github.com/k-talo/volatile-highlights.el
-;; Version: 20141004.2240
-;; X-Original-Version: 1.11
+;; Version: 1.11
 ;; Contributed by: Ryan Thompson and Le Wang.
 
 ;; This file is not part of GNU Emacs.

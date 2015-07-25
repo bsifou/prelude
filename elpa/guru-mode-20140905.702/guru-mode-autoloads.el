@@ -1,10 +1,9 @@
 ;;; guru-mode-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (guru-global-mode guru-mode) "guru-mode" "guru-mode.el"
-;;;;;;  (21517 26004 0 0))
+;;;### (autoloads nil "guru-mode" "guru-mode.el" (21889 26260 0 0))
 ;;; Generated autoloads from guru-mode.el
 
 (autoload 'guru-mode "guru-mode" "\
@@ -35,16 +34,9 @@ See `guru-mode' for more information on Guru mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("guru-mode-pkg.el") (21517 26004 581613
-;;;;;;  0))
-
-;;;***
-
-(provide 'guru-mode-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; guru-mode-autoloads.el ends here

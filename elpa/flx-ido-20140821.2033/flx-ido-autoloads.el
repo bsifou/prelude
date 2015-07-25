@@ -1,10 +1,9 @@
 ;;; flx-ido-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (flx-ido-mode) "flx-ido" "flx-ido.el" (21512 39078
-;;;;;;  0 0))
+;;;### (autoloads nil "flx-ido" "flx-ido.el" (21889 26301 0 0))
 ;;; Generated autoloads from flx-ido.el
 
 (defvar flx-ido-mode nil "\
@@ -20,16 +19,9 @@ Toggle flx ido mode
 
 ;;;***
 
-;;;### (autoloads nil nil ("flx-ido-pkg.el") (21512 39078 599733
-;;;;;;  0))
-
-;;;***
-
-(provide 'flx-ido-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; flx-ido-autoloads.el ends here

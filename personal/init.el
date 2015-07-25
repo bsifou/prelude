@@ -6,13 +6,14 @@
 ;;; Code:
 (prelude-require-packages '(markdown-mode
                             refheap
-                            multi-term))
+                            multi-term
+                            slim-mode))
 
-(defun fci-hook ()
-  (setq-default fci-rule-column 80)
-  (fci-mode 1))
+;; (defun fci-hook ()
+;;   (setq-default fci-rule-column 80)
+;;   (fci-mode 1))
 
-(add-hook 'prog-mode-hook 'fci-hook)
+;; (add-hook 'prog-mode-hook 'fci-hook)
 
 ;; window size on startup
 (if (window-system) (set-frame-size (selected-frame) 200 56))
@@ -66,3 +67,6 @@
 
 ;; js2mode
 (setq-default js2-basic-offset 2)
+
+;; magit
+(setq magit-last-seen-setup-instructions "1.4.0")

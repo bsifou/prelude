@@ -6,8 +6,8 @@
 ;; Maintainer: Le Wang
 ;; Description: fuzzy matching with good sorting
 ;; Created: Wed Apr 17 01:01:41 2013 (+0800)
-;; Version: 20140921.739
-;; X-Original-Version: 0.5
+;; Version: 0.5
+;; Package-Version: 20140921.739
 ;; Package-Requires: ((cl-lib "0.3"))
 ;; URL: https://github.com/lewang/flx
 

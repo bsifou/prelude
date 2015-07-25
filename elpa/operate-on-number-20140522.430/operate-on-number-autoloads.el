@@ -1,11 +1,10 @@
 ;;; operate-on-number-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads (operate-on-number-at-point apply-operation-to-number-at-point
-;;;;;;  find-number-at-point) "operate-on-number" "operate-on-number.el"
-;;;;;;  (21402 47962 0 0))
+;;;### (autoloads nil "operate-on-number" "operate-on-number.el"
+;;;;;;  (21889 26280 0 0))
 ;;; Generated autoloads from operate-on-number.el
 
 (autoload 'find-number-at-point "operate-on-number" "\
@@ -45,16 +44,9 @@ point for the operation if applicable.
 
 ;;;***
 
-;;;### (autoloads nil nil ("operate-on-number-pkg.el") (21402 47962
-;;;;;;  957180 0))
-
-;;;***
-
-(provide 'operate-on-number-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; operate-on-number-autoloads.el ends here
