@@ -7,7 +7,9 @@
 (prelude-require-packages '(markdown-mode
                             refheap
                             multi-term
-                            slim-mode))
+                            slim-mode
+                            sass-mode
+                            rvm))
 
 ;; (defun fci-hook ()
 ;;   (setq-default fci-rule-column 80)
