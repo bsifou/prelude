@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "flx-ido" "flx-ido.el" (21889 26301 0 0))
+;;;### (autoloads nil "flx-ido" "flx-ido.el" (22013 6893 0 0))
 ;;; Generated autoloads from flx-ido.el
 
 (defvar flx-ido-mode nil "\
