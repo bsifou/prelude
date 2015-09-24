@@ -9,7 +9,9 @@
                             multi-term
                             slim-mode
                             sass-mode
-                            rvm))
+                            rvm
+                            helm-ag
+                            ))
 
 ;; (defun fci-hook ()
 ;;   (setq-default fci-rule-column 80)
