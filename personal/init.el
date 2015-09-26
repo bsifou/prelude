@@ -10,7 +10,9 @@
                             slim-mode
                             sass-mode
                             rvm
-                            helm-ag
+                            inf-clojure
+                            
+                            
                             ))
 
 ;; (defun fci-hook ()
