@@ -11,8 +11,9 @@
                             sass-mode
                             rvm
                             inf-clojure
-                            
-                            
+                            ag
+                            projectile-rails
+                            clj-refactor
                             ))
 
 ;; (defun fci-hook ()
@@ -76,3 +77,6 @@
 
 ;; magit
 (setq magit-last-seen-setup-instructions "1.4.0")
+
+;; projectile
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
