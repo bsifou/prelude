@@ -14,6 +14,9 @@
                             ag
                             projectile-rails
                             clj-refactor
+                            flycheck-clojure
+                            flycheck-pos-tip
+                            jedi
                             ))
 
 ;; (defun fci-hook ()
@@ -80,3 +83,21 @@
 
 ;; projectile
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
+
+;; squiggly-clojure
+(eval-after-load 'flycheck '(flycheck-clojure-setup))
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(eval-after-load 'flycheck
+  '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+
+;; emacs server
+
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+;; python jedi
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)  
+
