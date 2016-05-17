@@ -17,6 +17,8 @@
                             flycheck-clojure
                             flycheck-pos-tip
                             jedi
+                            ensime
+                            use-package
                             ))
 
 ;; (defun fci-hook ()
@@ -100,4 +102,26 @@
 
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)  
+
+;; ensime
+
+(use-package scala-mode2
+  :interpreter
+  ("scala" . scala-mode))
+
+(use-package sbt-mode
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map))
+
+(use-package ensime
+             :commands ensime ensime-mode)
+
+(add-hook 'scala-mode-hook 'ensime-mode)
+
 
