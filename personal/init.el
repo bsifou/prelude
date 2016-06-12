@@ -13,11 +13,11 @@
                             inf-clojure
                             ag
                             projectile-rails
-                            clj-refactor
-                            flycheck-clojure
+                            ;; clj-refactor
+                            ;; flycheck-clojure
                             flycheck-pos-tip
                             jedi
-                            ensime
+                            ;; ensime
                             use-package
                             ))
 
@@ -86,42 +86,8 @@
 ;; projectile
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
 
-;; squiggly-clojure
-(eval-after-load 'flycheck '(flycheck-clojure-setup))
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(eval-after-load 'flycheck
-  '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
-
 ;; emacs server
 
 (require 'server)
 (unless (server-running-p)
   (server-start))
-
-;; python jedi
-
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)  
-
-;; ensime
-
-(use-package scala-mode2
-  :interpreter
-  ("scala" . scala-mode))
-
-(use-package sbt-mode
-  :commands sbt-start sbt-command
-  :config
-  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
-  ;; allows using SPACE when in the minibuffer
-  (substitute-key-definition
-   'minibuffer-complete-word
-   'self-insert-command
-   minibuffer-local-completion-map))
-
-(use-package ensime
-             :commands ensime ensime-mode)
-
-(add-hook 'scala-mode-hook 'ensime-mode)
-
-
