@@ -150,7 +150,7 @@
 
 ;; Doesn't work yet
 (defcustom cljr-libspec-whitelist
-  '("cljsjs.bootstrap")
+  '("^cljsjs")
   "List of regexes to match against libspec names which shouldn't be pruned.
 
 This is useful when `clean-ns' should leave a libspec alone even
