@@ -1,9 +1,9 @@
 ;;; ov-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "ov" "ov.el" (22013 6866 0 0))
+;;;### (autoloads nil "ov" "ov.el" (22788 57852 0 0))
 ;;; Generated autoloads from ov.el
 
 (autoload 'ov-clear "ov" "\
@@ -21,7 +21,7 @@ property and value between these points.
 
 With no arguments, clear all overlays in the buffer.
 
-\(fn &optional PROP-OR-BEG (val-or-end (quote any)) BEG END)" t nil)
+\(fn &optional PROP-OR-BEG (VAL-OR-END \\='any) BEG END)" t nil)
 
 ;;;***
 

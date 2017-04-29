@@ -1,9 +1,9 @@
 ;;; vkill-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil nil ("vkill.el") (22013 6891 264809 0))
+;;;### (autoloads nil nil ("vkill.el") (22788 57862 0 0))
 
 ;;;***
 
