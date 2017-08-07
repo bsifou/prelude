@@ -20,7 +20,19 @@
                             use-package
                             neotree
                             auto-highlight-symbol
+                            haskell-mode
+                            intero
+                            flymake-hlint
+                            ;; hlint-refactor uses https://github.com/mpickering/apply-refact
+                            ;; install by running the following outside a project dir: stack --resolver=nightly install apply-refact
+                            hlint-refactor
+
+                            ;; install joker first
+                            ;; https://github.com/candid82/joker#installation
+                            flycheck-joker
                             ))
+
+(require 'flycheck-joker)
 
 ;; (defun fci-hook ()
 ;;   (setq-default fci-rule-column 80)
@@ -55,6 +67,26 @@
   (untabify (point-min) (point-max)))
 (global-set-key (kbd "<f7>") 'iwb)
 
+;; (add-hook 'mouse-leave-buffer-hook
+;;           (lambda ()
+;;             (let ((mode (message "%s" major-mode)))
+;;               (if (string= "clojure-mode" mode)
+;;                   (iwb)
+;;                 (progn (print "mode is not clojure mode") (print mode))
+;;                 ))))
+
+;; TODO: try this:
+;; (defvar auto-indent-modes
+;;   '(clojure-mode emacs-lisp-mode))
+
+;; (defun indent-maybe ()
+;;   (when (member major-mode auto-indent-modes)
+;;     (indent-region (point-min) (point-max))))
+
+;; (add-hook 'before-save-hook #'indent-maybe)
+
+
+
 ;; see http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term/
 (add-hook 'term-mode-hook
           (lambda ()
@@ -69,7 +101,10 @@
 ;; disable automatic scss compilation on save
 (custom-set-variables '(scss-compile-at-save nil))
 
+;; Don't show whitespace
 (setq prelude-whitespace nil)
+;; Do not warn about arrow keys
+(setq prelude-guru nil)
 
 ;; coffeescript-mode
 (custom-set-variables '(coffee-tab-width 2))
@@ -118,16 +153,17 @@
 
 ;; flyspell
 
+(setq prelude-flyspell nil)
 ;; source: https://www.emacswiki.org/emacs/FlySpell
-(defun fd-switch-dictionary()
-  (interactive)
-  (let* ((dic ispell-current-dictionary)
-         (change (if (string= dic "nl") "en" "nl")))
-    (ispell-change-dictionary change)
-    (message "Dictionary switched from %s to %s" dic change)
-    ))
+;; (defun fd-switch-dictionary()
+;;   (interactive)
+;;   (let* ((dic ispell-current-dictionary)
+;;          (change (if (string= dic "nl") "en" "nl")))
+;;     (ispell-change-dictionary change)
+;;     (message "Dictionary switched from %s to %s" dic change)
+;;     ))
 
-(global-set-key (kbd "<f8>") 'fd-switch-dictionary)
+;; (global-set-key (kbd "<f8>") 'fd-switch-dictionary)
 
 ;;
 (defun copy-file-name-to-clipboard ()
@@ -148,12 +184,6 @@
       (setq-local cider-connections (list conn))
     (message "not a connection buffer")))
 
-;; Doesn't work yet
-(defcustom cljr-libspec-whitelist
-  '("^cljsjs")
-  "List of regexes to match against libspec names which shouldn't be pruned.
-
-This is useful when `clean-ns' should leave a libspec alone even
-if it appears to be unused."
-  :group 'cljr
-  :type '(repeat string))
+;; Haskell
+(add-hook 'haskell-mode-hook 'intero-mode)
+;;(add-hook 'haskell-mode-hook 'flymake-hlint-load)
