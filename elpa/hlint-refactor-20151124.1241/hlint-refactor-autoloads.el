@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "hlint-refactor" "hlint-refactor.el" (22798
-;;;;;;  9492 0 0))
+;;;### (autoloads nil "hlint-refactor" "hlint-refactor.el" (22920
+;;;;;;  21776 0 0))
 ;;; Generated autoloads from hlint-refactor.el
 
 (autoload 'hlint-refactor-refactor-buffer "hlint-refactor" "\
