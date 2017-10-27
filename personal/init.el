@@ -30,6 +30,7 @@
                             ;; install joker first
                             ;; https://github.com/candid82/joker#installation
                             flycheck-joker
+                            adoc-mode
                             ))
 
 (require 'flycheck-joker)
