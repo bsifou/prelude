@@ -3,7 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "god-mode" "god-mode.el" (22920 21719 0 0))
+;;;### (autoloads nil "god-mode" "god-mode.el" (23078 16934 442165
+;;;;;;  755000))
 ;;; Generated autoloads from god-mode.el
 
 (autoload 'god-local-mode "god-mode" "\
@@ -29,7 +30,7 @@ Activate God mode locally on individual buffers when appropriate.
 ;;;***
 
 ;;;### (autoloads nil nil ("god-mode-isearch.el" "god-mode-pkg.el")
-;;;;;;  (22920 21719 0 0))
+;;;;;;  (23078 16934 445419 773000))
 
 ;;;***
 

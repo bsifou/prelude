@@ -5,7 +5,6 @@
 
 ;;; Code:
 (prelude-require-packages '(markdown-mode
-                            refheap
                             multi-term
                             slim-mode
                             sass-mode
@@ -143,7 +142,7 @@
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 
 ;; cider cljs repl setting - start with cider-create-sibling-cljs-repl in project
-(setq cider-cljs-lein-repl "(do (ns boot.user) (start-repl))")
+(setq cider-cljs-boot-repl "(do (in-ns boot.user) (start-repl))")
 
 ;; neotree
 (setq neo-smart-open t)

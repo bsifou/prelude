@@ -4,7 +4,7 @@
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "discover-my-major" "discover-my-major.el"
-;;;;;;  (22920 21711 0 0))
+;;;;;;  (23078 16867 920447 552000))
 ;;; Generated autoloads from discover-my-major.el
 
 (autoload 'discover-my-major "discover-my-major" "\

@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "adoc-mode" "adoc-mode.el" (23027 24842 443717
-;;;;;;  34000))
+;;;### (autoloads nil "adoc-mode" "adoc-mode.el" (23078 17063 446430
+;;;;;;  402000))
 ;;; Generated autoloads from adoc-mode.el
 
 (autoload 'adoc-mode "adoc-mode" "\

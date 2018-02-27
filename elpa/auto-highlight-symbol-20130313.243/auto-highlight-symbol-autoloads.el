@@ -4,7 +4,7 @@
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil "auto-highlight-symbol" "auto-highlight-symbol.el"
-;;;;;;  (22920 21775 0 0))
+;;;;;;  (23078 17060 849016 268000))
 ;;; Generated autoloads from auto-highlight-symbol.el
 
 (defvar global-auto-highlight-symbol-mode nil "\

@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil nil ("markup-faces.el") (23027 24841 841256
-;;;;;;  882000))
+;;;### (autoloads nil nil ("markup-faces.el") (23078 17062 988967
+;;;;;;  396000))
 
 ;;;***
 

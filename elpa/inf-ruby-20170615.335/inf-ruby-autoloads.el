@@ -3,7 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "inf-ruby" "inf-ruby.el" (22920 21757 0 0))
+;;;### (autoloads nil "inf-ruby" "inf-ruby.el" (23078 17040 637539
+;;;;;;  245000))
 ;;; Generated autoloads from inf-ruby.el
 
 (defvar ruby-source-modes '(ruby-mode enh-ruby-mode) "\

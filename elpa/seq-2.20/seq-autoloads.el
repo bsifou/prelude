@@ -4,7 +4,7 @@
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
 ;;;### (autoloads nil nil ("seq-24.el" "seq-25.el" "seq-pkg.el" "seq.el")
-;;;;;;  (22920 21709 0 0))
+;;;;;;  (23078 16865 727377 250000))
 
 ;;;***
 
