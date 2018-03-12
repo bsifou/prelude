@@ -187,3 +187,10 @@
 ;; Haskell
 (add-hook 'haskell-mode-hook 'intero-mode)
 ;;(add-hook 'haskell-mode-hook 'flymake-hlint-load)
+
+;; Highlighting
+(require 'auto-highlight-symbol)
+(global-auto-highlight-symbol-mode t)
+(mapc (lambda (mode)
+        (add-to-list 'ahs-modes mode))
+      '(clojure-mode clojurescript-mode cider-repl-mode))
