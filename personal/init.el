@@ -186,7 +186,9 @@
 
 ;; Haskell
 (add-hook 'haskell-mode-hook 'intero-mode)
-;;(add-hook 'haskell-mode-hook 'flymake-hlint-load)
+;; the non-nil optional argument puts it after intero-mode
+(add-hook 'haskell-mode-hook 'flymake-hlint-load t)
+(global-auto-complete-mode t)
 
 ;; Highlighting
 (require 'auto-highlight-symbol)
