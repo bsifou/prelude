@@ -189,6 +189,7 @@
 ;; the non-nil optional argument puts it after intero-mode
 (add-hook 'haskell-mode-hook 'flymake-hlint-load t)
 (global-auto-complete-mode t)
+(require 'haskell-align-imports)
 
 ;; Highlighting
 (require 'auto-highlight-symbol)
@@ -196,3 +197,5 @@
 (mapc (lambda (mode)
         (add-to-list 'ahs-modes mode))
       '(clojure-mode clojurescript-mode cider-repl-mode))
+
+(setq-default fill-column 80)
