@@ -41,7 +41,8 @@
 ;; (add-hook 'prog-mode-hook 'fci-hook)
 
 ;; window size on startup
-(if (window-system) (set-frame-size (selected-frame) 200 56))
+;; (if (window-system) (set-frame-size (selected-frame) 200 56))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; obsolete, use crux-rename-file-and-buffer
 ;; (defun rename-file-and-buffer (new-name)
@@ -187,7 +188,7 @@
 ;; Haskell
 (add-hook 'haskell-mode-hook 'intero-mode)
 ;; the non-nil optional argument puts it after intero-mode
-(add-hook 'haskell-mode-hook 'flymake-hlint-load t)
+(add-hook 'haskell-mode-hook 'flymake-hlint-load  t)
 (global-auto-complete-mode t)
 (require 'haskell-align-imports)
 
@@ -196,6 +197,21 @@
 (global-auto-highlight-symbol-mode t)
 (mapc (lambda (mode)
         (add-to-list 'ahs-modes mode))
-      '(clojure-mode clojurescript-mode cider-repl-mode))
+      '(clojure-mode clojurescript-mode cider-repl-mode haskell-mode javascript-mode))
 
 (setq-default fill-column 80)
+
+;; cljfmt
+(defun cljfmt ()
+  (when (or (eq major-mode 'clojure-mode)
+            (eq major-mode 'clojurescript-mode))
+    (shell-command-to-string (format "cljfmt %s" buffer-file-name))
+    (revert-buffer :ignore-auto :noconfirm)))
+
+;; (add-hook 'after-save-hook #'cljfmt)
+
+(define-key global-map (kbd "s-`") 'other-frame)
+
+;; for connecting to remote REPL
+
+(setq nrepl-use-ssh-fallback-for-remote-hosts nil)

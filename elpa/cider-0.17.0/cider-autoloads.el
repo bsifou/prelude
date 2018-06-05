@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "cider" "cider.el" (23189 14133 995559 178000))
+;;;### (autoloads nil "cider" "cider.el" (23315 49790 356128 903000))
 ;;; Generated autoloads from cider.el
 
 (autoload 'cider-version "cider" "\
@@ -27,6 +27,8 @@ start the server.
 
 \(fn &optional PROMPT-PROJECT)" t nil)
 
+(defalias 'cider-jack-in-cljs #'cider-jack-in-clojurescript)
+
 (autoload 'cider-connect "cider" "\
 Connect to an nREPL server identified by HOST and PORT.
 Create REPL buffer and start an nREPL client connection.
@@ -44,12 +46,14 @@ the appropriate REPL type in the end.
 
 \(fn)" t nil)
 
+(defalias 'cider-connect-cljs #'cider-connect-clojurescript)
+
 (eval-after-load 'clojure-mode '(progn (define-key clojure-mode-map (kbd "C-c M-j") #'cider-jack-in) (define-key clojure-mode-map (kbd "C-c M-J") #'cider-jack-in-clojurescript) (define-key clojure-mode-map (kbd "C-c M-c") #'cider-connect) (define-key clojure-mode-map (kbd "C-c M-C") #'cider-connect-clojurescript)))
 
 ;;;***
 
-;;;### (autoloads nil "cider-apropos" "cider-apropos.el" (23189 14133
-;;;;;;  971774 301000))
+;;;### (autoloads nil "cider-apropos" "cider-apropos.el" (23315 49790
+;;;;;;  334070 30000))
 ;;; Generated autoloads from cider-apropos.el
 
 (autoload 'cider-apropos "cider-apropos" "\
@@ -86,8 +90,8 @@ Shortcut for (cider-apropos-select <query> nil t).
 
 ;;;***
 
-;;;### (autoloads nil "cider-browse-ns" "cider-browse-ns.el" (23189
-;;;;;;  14133 968838 799000))
+;;;### (autoloads nil "cider-browse-ns" "cider-browse-ns.el" (23315
+;;;;;;  49790 331807 789000))
 ;;; Generated autoloads from cider-browse-ns.el
 
 (autoload 'cider-browse-ns "cider-browse-ns" "\
@@ -103,7 +107,7 @@ List all loaded namespaces in BUFFER.
 ;;;***
 
 ;;;### (autoloads nil "cider-browse-spec" "cider-browse-spec.el"
-;;;;;;  (23189 14133 989223 473000))
+;;;;;;  (23315 49790 350446 408000))
 ;;; Generated autoloads from cider-browse-spec.el
 
 (autoload 'cider-browse-spec "cider-browse-spec" "\
@@ -121,8 +125,8 @@ No filter applied if the regexp is the empty string.
 
 ;;;***
 
-;;;### (autoloads nil "cider-cheatsheet" "cider-cheatsheet.el" (23189
-;;;;;;  14133 991497 858000))
+;;;### (autoloads nil "cider-cheatsheet" "cider-cheatsheet.el" (23315
+;;;;;;  49790 352804 773000))
 ;;; Generated autoloads from cider-cheatsheet.el
 
 (autoload 'cider-cheatsheet "cider-cheatsheet" "\
@@ -134,8 +138,8 @@ When you make it to a Clojure var its doc buffer gets displayed.
 
 ;;;***
 
-;;;### (autoloads nil "cider-classpath" "cider-classpath.el" (23189
-;;;;;;  14133 998177 586000))
+;;;### (autoloads nil "cider-classpath" "cider-classpath.el" (23315
+;;;;;;  49790 358297 37000))
 ;;; Generated autoloads from cider-classpath.el
 
 (autoload 'cider-classpath "cider-classpath" "\
@@ -150,8 +154,8 @@ Open a classpath entry.
 
 ;;;***
 
-;;;### (autoloads nil "cider-debug" "cider-debug.el" (23189 14133
-;;;;;;  970356 959000))
+;;;### (autoloads nil "cider-debug" "cider-debug.el" (23315 49790
+;;;;;;  332846 527000))
 ;;; Generated autoloads from cider-debug.el
 
 (autoload 'cider-debug-defun-at-point "cider-debug" "\
@@ -167,8 +171,8 @@ a number of keys will be prompted to the user.
 
 ;;;***
 
-;;;### (autoloads nil "cider-grimoire" "cider-grimoire.el" (23189
-;;;;;;  14133 982334 822000))
+;;;### (autoloads nil "cider-grimoire" "cider-grimoire.el" (23315
+;;;;;;  49790 343838 715000))
 ;;; Generated autoloads from cider-grimoire.el
 
 (autoload 'cider-grimoire-web "cider-grimoire" "\
@@ -191,8 +195,8 @@ opposite of what that option dictates.
 
 ;;;***
 
-;;;### (autoloads nil "cider-inspector" "cider-inspector.el" (23189
-;;;;;;  14133 979971 722000))
+;;;### (autoloads nil "cider-inspector" "cider-inspector.el" (23315
+;;;;;;  49790 341678 538000))
 ;;; Generated autoloads from cider-inspector.el
 
 (autoload 'cider-inspect-last-sexp "cider-inspector" "\
@@ -228,7 +232,7 @@ current buffer's namespace.
 ;;;***
 
 ;;;### (autoloads nil "cider-macroexpansion" "cider-macroexpansion.el"
-;;;;;;  (23189 14133 992834 36000))
+;;;;;;  (23315 49790 353891 34000))
 ;;; Generated autoloads from cider-macroexpansion.el
 
 (autoload 'cider-macroexpand-1 "cider-macroexpansion" "\
@@ -245,25 +249,24 @@ Invoke \\=`macroexpand-all\\=` on the expression preceding point.
 
 ;;;***
 
-;;;### (autoloads nil "cider-mode" "cider-mode.el" (23189 14133 974215
-;;;;;;  264000))
+;;;### (autoloads nil "cider-mode" "cider-mode.el" (23315 49790 336306
+;;;;;;  290000))
 ;;; Generated autoloads from cider-mode.el
 
 (defvar cider-mode-line '(:eval (format " cider[%s]" (cider--modeline-info))) "\
-Mode line lighter for `cider-mode'.
+Mode line lighter for cider mode.
 
 The value of this variable is a mode line template as in
-`mode-line-format'.  See Info Node `(elisp)Mode Line Format' for
-details about mode line templates.
+`mode-line-format'.  See Info Node `(elisp)Mode Line Format' for details
+about mode line templates.
 
-Customize this variable to change how `cider-mode' displays its
-status in the mode line.  The default value displays the current connection.
-Set this variable to nil to disable the mode line
-entirely.")
+Customize this variable to change how cider mode displays its status in the
+mode line.  The default value displays the current connection.  Set this
+variable to nil to disable the mode line entirely.")
 
 (custom-autoload 'cider-mode-line "cider-mode" t)
 
-(eval-after-load 'clojure-mode '(easy-menu-define cider-clojure-mode-menu-open clojure-mode-map "Menu for Clojure mode.\n  This is displayed in `clojure-mode' buffers, if `cider-mode' is not active." `("CIDER" :visible (not cider-mode) ["Start a Clojure REPL" cider-jack-in :help "Starts an nREPL server (with Leiningen, Boot, or Gradle) and connects a REPL to it."] ["Connect to a Clojure REPL" cider-connect :help "Connects to a REPL that's already running."] ["Connect to a ClojureScript REPL" cider-connect-clojurescript :help "Connects to a ClojureScript REPL that's already running."] ["Start a Clojure REPL, and a ClojureScript REPL" cider-jack-in-clojurescript :help "Starts an nREPL server, connects a Clojure REPL to it, and then a ClojureScript REPL.\n  Configure `cider-cljs-lein-repl', `cider-cljs-boot-repl' and `cider-cljs-gradle-repl' to change the ClojureScript REPL to use."] "--" ["View manual online" cider-view-manual])))
+(eval-after-load 'clojure-mode '(easy-menu-define cider-clojure-mode-menu-open clojure-mode-map "Menu for Clojure mode.\n  This is displayed in `clojure-mode' buffers, if `cider-mode' is not active." `("CIDER" :visible (not cider-mode) ["Start a Clojure REPL" cider-jack-in :help "Starts an nREPL server (with Leiningen, Boot, or Gradle) and connects a REPL to it."] ["Connect to a Clojure REPL" cider-connect :help "Connects to a REPL that's already running."] ["Connect to a ClojureScript REPL" cider-connect-clojurescript :help "Connects to a ClojureScript REPL that's already running."] ["Start a Clojure REPL, and a ClojureScript REPL" cider-jack-in-clojurescript :help "Starts an nREPL server, connects a Clojure REPL to it, and then a ClojureScript REPL."] "--" ["View manual online" cider-view-manual])))
 
 (autoload 'cider-mode "cider-mode" "\
 Minor mode for REPL interaction from a Clojure buffer.
@@ -274,8 +277,8 @@ Minor mode for REPL interaction from a Clojure buffer.
 
 ;;;***
 
-;;;### (autoloads nil "cider-profile" "cider-profile.el" (23189 14133
-;;;;;;  964365 716000))
+;;;### (autoloads nil "cider-profile" "cider-profile.el" (23315 49790
+;;;;;;  328523 280000))
 ;;; Generated autoloads from cider-profile.el
 
 (autoload 'cider-profile-samples "cider-profile" "\
@@ -326,7 +329,7 @@ Clear any collected profile data.
 ;;;***
 
 ;;;### (autoloads nil "cider-repl-history" "cider-repl-history.el"
-;;;;;;  (23189 14133 988032 390000))
+;;;;;;  (23315 49790 349358 246000))
 ;;; Generated autoloads from cider-repl-history.el
 
 (autoload 'cider-repl-history "cider-repl-history" "\
@@ -336,8 +339,8 @@ Display items in the CIDER command history in another buffer.
 
 ;;;***
 
-;;;### (autoloads nil "cider-scratch" "cider-scratch.el" (23189 14133
-;;;;;;  976397 206000))
+;;;### (autoloads nil "cider-scratch" "cider-scratch.el" (23315 49790
+;;;;;;  338520 834000))
 ;;; Generated autoloads from cider-scratch.el
 
 (autoload 'cider-scratch "cider-scratch" "\
@@ -347,8 +350,8 @@ Go to the scratch buffer named `cider-scratch-buffer-name'.
 
 ;;;***
 
-;;;### (autoloads nil "cider-selector" "cider-selector.el" (23189
-;;;;;;  14133 996985 356000))
+;;;### (autoloads nil "cider-selector" "cider-selector.el" (23315
+;;;;;;  49790 357235 163000))
 ;;; Generated autoloads from cider-selector.el
 
 (autoload 'cider-selector "cider-selector" "\
@@ -363,8 +366,8 @@ See `def-cider-selector-method' for defining new methods.
 
 ;;;***
 
-;;;### (autoloads nil "cider-test" "cider-test.el" (23189 14133 990349
-;;;;;;  860000))
+;;;### (autoloads nil "cider-test" "cider-test.el" (23315 49790 351634
+;;;;;;  951000))
 ;;; Generated autoloads from cider-test.el
 
 (defvar cider-auto-test-mode nil "\
@@ -388,8 +391,8 @@ nothing if no tests are defined or if the file failed to load.
 
 ;;;***
 
-;;;### (autoloads nil "cider-util" "cider-util.el" (23189 14133 994239
-;;;;;;  369000))
+;;;### (autoloads nil "cider-util" "cider-util.el" (23315 49790 354956
+;;;;;;  699000))
 ;;; Generated autoloads from cider-util.el
 
 (autoload 'cider-view-manual "cider-util" "\
@@ -403,7 +406,7 @@ View the manual in your default browser.
 ;;;;;;  "cider-doc.el" "cider-eldoc.el" "cider-interaction.el" "cider-overlays.el"
 ;;;;;;  "cider-pkg.el" "cider-popup.el" "cider-repl.el" "cider-resolve.el"
 ;;;;;;  "cider-stacktrace.el" "nrepl-client.el" "nrepl-dict.el")
-;;;;;;  (23189 14133 999657 471000))
+;;;;;;  (23315 49790 359409 858000))
 
 ;;;***
 
