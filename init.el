@@ -1,6 +1,6 @@
 ;;; init.el --- Prelude's configuration entry point.
 ;;
-;; Copyright (c) 2011-2017 Bozhidar Batsov
+;; Copyright (c) 2011-2018 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: http://batsov.com/prelude
@@ -113,9 +113,9 @@ by Prelude.")
 (require 'prelude-editor)
 (require 'prelude-global-keybindings)
 
-;; OSX specific settings
+;; macOS specific settings
 (when (eq system-type 'darwin)
-  (require 'prelude-osx))
+  (require 'prelude-macos))
 
 (message "Loading Prelude's modules...")
 
@@ -125,7 +125,7 @@ by Prelude.")
   (message "Missing modules file %s" prelude-modules-file)
   (message "You can get started by copying the bundled example file from sample/prelude-modules.el"))
 
-;; config changes made through the customize UI will be store here
+;; config changes made through the customize UI will be stored here
 (setq custom-file (expand-file-name "custom.el" prelude-personal-dir))
 
 ;; load the personal settings (this includes `custom-file')
@@ -134,6 +134,12 @@ by Prelude.")
   (mapc 'load (directory-files prelude-personal-dir 't "^[^#\.].*el$")))
 
 (message "Prelude is ready to do thy bidding, Master %s!" current-user)
+
+;; Patch security vulnerability in Emacs versions older than 25.3
+(when (version< emacs-version "25.3")
+  (eval-after-load "enriched"
+    '(defun enriched-decode-display-prop (start end &optional param)
+       (list start end))))
 
 (prelude-eval-after-init
  ;; greet the use with some useful tip

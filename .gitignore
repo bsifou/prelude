@@ -27,3 +27,7 @@ games
 .emacs.desktop.lock
 ac-comphist.dat
 ac-comphist.dat
+network-security.data
+prelude-cheatsheet.el
+prelude-cheatsheet.aux
+prelude-cheatsheet.log
