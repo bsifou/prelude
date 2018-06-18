@@ -211,7 +211,3 @@
 ;; (add-hook 'after-save-hook #'cljfmt)
 
 (define-key global-map (kbd "s-`") 'other-frame)
-
-;; for connecting to remote REPL
-
-(setq nrepl-use-ssh-fallback-for-remote-hosts nil)
