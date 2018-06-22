@@ -211,3 +211,6 @@
 ;; (add-hook 'after-save-hook #'cljfmt)
 
 (define-key global-map (kbd "s-`") 'other-frame)
+
+;; (setq debug-on-error t)
+
