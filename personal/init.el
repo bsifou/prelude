@@ -30,6 +30,7 @@
                             ;; https://github.com/candid82/joker#installation
                             flycheck-joker
                             adoc-mode
+                            purescript-mode
                             ))
 
 (require 'flycheck-joker)
@@ -214,3 +215,6 @@
 
 ;; (setq debug-on-error t)
 
+;; https://queertypes.com/posts/34-purescript-emacs.html
+(add-hook 'purescript-mode-hook 'turn-on-purescript-indentation)
+(add-hook 'purescript-mode-hook 'flycheck-mode)
