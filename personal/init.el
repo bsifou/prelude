@@ -30,6 +30,7 @@
                             ;; https://github.com/candid82/joker#installation
                             flycheck-joker
                             adoc-mode
+                            ido-vertical-mode
                             ))
 
 (require 'flycheck-joker)
@@ -214,3 +215,10 @@
 
 ;; (setq debug-on-error t)
 
+;; Common Lisp
+
+;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; ;; Replace "sbcl" with the path to your implementation
+;; (setq inferior-lisp-program "sbcl")
+
+(ido-vertical-mode 1)

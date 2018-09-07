@@ -3,7 +3,7 @@
 ;; Copyright (C) 2011-2017 EditorConfig Team
 
 ;; Author: EditorConfig Team <editorconfig@googlegroups.com>
-;; Version: 0.7.11
+;; Version: 0.7.12
 ;; URL: https://github.com/editorconfig/editorconfig-emacs#readme
 ;; Package-Requires: ((cl-lib "0.5"))
 
@@ -126,6 +126,7 @@ show line numbers on the left:
     (coffee-mode coffee-tab-width)
     (cperl-mode cperl-indent-level)
     (crystal-mode crystal-indent-level)
+    (csharp-mode c-basic-offset)
     (css-mode css-indent-offset)
     (emacs-lisp-mode lisp-indent-offset)
     (erlang-mode erlang-indent-level)
@@ -260,6 +261,16 @@ Set by `editorconfig-apply' and nil if that is not invoked in
 current buffer yet.")
 (make-variable-buffer-local 'editorconfig-properties-hash)
 
+(defvar editorconfig-lisp-use-default-indent nil
+  "Selectively ignore the value of indent_sizefor Lisp files.
+Prevents `lisp-indent-offset' from being set selectively.
+
+nil - `lisp-indent-offset' is always set normally.
+t   - `lisp-indent-offset' is never set normally
+       (always use default indent for lisps).
+number - `lisp-indent-offset' is not set only if indent_size is
+         equal to this number.  For example, if this is set to 2,
+         `lisp-indent-offset'will not be set only if indent_size is 2.")
 
 (defun editorconfig-string-integer-p (string)
   "Return non-nil if STRING represents integer."
@@ -291,6 +302,19 @@ current buffer yet.")
   (when (boundp 'LaTeX-item-indent)
     (set (make-local-variable 'LaTeX-item-indent) (- size))))
 
+(defun editorconfig--should-set (size symbol)
+  "Determines if editorconfig should set SYMBOL using SIZE."
+  (if (eq symbol 'lisp-indent-offset)
+      (cond
+       ((eql nil editorconfig-lisp-use-default-indent)
+        t)
+       ((eql t editorconfig-lisp-use-default-indent)
+        nil)
+       ((numberp editorconfig-lisp-use-default-indent)
+        (not (eql size editorconfig-lisp-use-default-indent)))
+       (t t))
+    t))
+
 (defun editorconfig-set-indentation (style &optional size tab_width)
   "Set indentation type from STYLE, SIZE and TAB_WIDTH."
   (make-local-variable 'indent-tabs-mode)
@@ -321,8 +345,11 @@ current buffer yet.")
           (cond ((functionp fn-or-list) (funcall fn-or-list size))
                 ((listp fn-or-list)
                  (dolist (elem fn-or-list)
-                   (cond ((symbolp elem) (set (make-local-variable elem) size))
-                         ((consp elem)
+                   (cond ((and (symbolp elem)
+                               (editorconfig--should-set size elem))
+                          (set (make-local-variable elem) size))
+                         ((and (consp elem)
+                               (editorconfig--should-set size (car elem)))
                           (let ((spec (cdr elem)))
                             (set (make-local-variable (car elem))
                                  (cond ((functionp spec) (funcall spec size))
@@ -340,8 +367,8 @@ current buffer yet.")
              ((equal charset "latin1") 'iso-latin-1)
              ((equal charset "utf-8") 'utf-8)
              ((equal charset "utf-8-bom") 'utf-8-with-signature)
-             ((equal charset "utf-16be") 'utf-16be)
-             ((equal charset "utf-16le") 'utf-16le)
+             ((equal charset "utf-16be") 'utf-16be-with-signature)
+             ((equal charset "utf-16le") 'utf-16le-with-signature)
              (t 'undecided))))
     (unless (and (eq eol 'undecided)
                  (eq cs 'undecided))
@@ -368,13 +395,15 @@ current buffer yet.")
   "Set up trimming of trailing whitespace at end of lines by
 TRIM-TRAILING-WS."
   (make-local-variable 'write-file-functions) ;; just current buffer
-  (when (equal trim-trailing-ws "true")
+  (when (and (equal trim-trailing-ws "true")
+             (not buffer-read-only))
     ;; when true we push delete-trailing-whitespace (emacs > 21)
     ;; to write-file-functions
     (add-to-list
      'write-file-functions
      'delete-trailing-whitespace))
-  (when (equal trim-trailing-ws "false")
+  (when (or (equal trim-trailing-ws "false")
+            buffer-read-only)
     ;; when false we remove every delete-trailing-whitespace
     ;; from write-file-functions
     (setq
@@ -558,7 +587,8 @@ mode is not listed in `editorconfig-exclude-modes'."
   :lighter editorconfig-mode-lighter
   ;; See https://github.com/editorconfig/editorconfig-emacs/issues/141 for why
   ;; not `after-change-major-mode-hook'
-  (dolist (hook '(change-major-mode-after-body-hook))
+  (dolist (hook '(change-major-mode-after-body-hook
+                  read-only-mode-hook))
     (if editorconfig-mode
         (add-hook hook 'editorconfig-mode-apply)
       (remove-hook hook 'editorconfig-mode-apply))))
