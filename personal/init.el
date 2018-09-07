@@ -31,6 +31,7 @@
                             flycheck-joker
                             adoc-mode
                             ido-vertical-mode
+                            purescript-mode
                             ))
 
 (require 'flycheck-joker)
@@ -222,3 +223,8 @@
 ;; (setq inferior-lisp-program "sbcl")
 
 (ido-vertical-mode 1)
+
+
+;; https://queertypes.com/posts/34-purescript-emacs.html
+(add-hook 'purescript-mode-hook 'turn-on-purescript-indentation)
+(add-hook 'purescript-mode-hook 'flycheck-mode)
