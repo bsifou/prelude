@@ -13,7 +13,7 @@
         ;; (caml . "melpa-stable")
         ;; (cask-mode . "melpa-stable")
         ;; (cdlatex . "melpa-stable")
-        (cider . "melpa-stable")
+        ;; (cider . "melpa-stable")
         ;; (clojure-mode . "melpa-stable")
         ;; (cmake-mode . "melpa-stable")
         ;; (coffee-mode . "melpa-stable")

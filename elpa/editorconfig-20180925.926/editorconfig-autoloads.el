@@ -44,7 +44,7 @@ mode is not listed in `editorconfig-exclude-modes'.
 
 \(fn &optional ARG)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig" '("editorconfig-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig" '("editorcon")))
 
 ;;;***
 
@@ -57,7 +57,7 @@ Major mode for editing .editorconfig files.
 
 \(fn)" t nil)
 
-(add-to-list 'auto-mode-alist '("/\\.editorconfig\\'" . editorconfig-conf-mode))
+(add-to-list 'auto-mode-alist '("\\.editorconfig\\'" . editorconfig-conf-mode))
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "editorconfig-conf-mode" '("editorconfig-conf-mode-syntax-table")))
 
