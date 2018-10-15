@@ -228,3 +228,6 @@
 ;; https://queertypes.com/posts/34-purescript-emacs.html
 (add-hook 'purescript-mode-hook 'turn-on-purescript-indentation)
 (add-hook 'purescript-mode-hook 'flycheck-mode)
+
+;; https://twitter.com/unlog1c/status/1051877170874904578
+(setq-default ffap-machine-p-known 'reject)
