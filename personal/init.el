@@ -32,6 +32,7 @@
                             adoc-mode
                             ido-vertical-mode
                             purescript-mode
+                            reveal-in-osx-finder
                             ))
 
 (require 'flycheck-joker)
