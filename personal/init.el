@@ -33,6 +33,7 @@
                             ido-vertical-mode
                             purescript-mode
                             reveal-in-osx-finder
+                            sql-indent
                             ))
 
 (require 'flycheck-joker)
