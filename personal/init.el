@@ -193,7 +193,7 @@
 (add-hook 'haskell-mode-hook 'intero-mode)
 ;; the non-nil optional argument puts it after intero-mode
 (add-hook 'haskell-mode-hook 'flymake-hlint-load  t)
-(global-auto-complete-mode t)
+;; (global-auto-complete-mode t)
 (require 'haskell-align-imports)
 
 ;; Highlighting
