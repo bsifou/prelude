@@ -233,3 +233,6 @@
 
 ;; https://twitter.com/unlog1c/status/1051877170874904578
 (setq-default ffap-machine-p-known 'reject)
+
+;; shellcheck
+(add-hook 'sh-mode-hook 'flycheck-mode)
