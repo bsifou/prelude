@@ -34,6 +34,7 @@
                             purescript-mode
                             reveal-in-osx-finder
                             sql-indent
+                            exec-path-from-shell ;; fix path in Emacs by reading from .zshenv
                             ))
 
 (require 'flycheck-joker)
@@ -236,3 +237,10 @@
 
 ;; shellcheck
 (add-hook 'sh-mode-hook 'flycheck-mode)
+
+;; fix path
+(when (memq window-system '(mac ns))
+  (setenv "SHELL" "/bin/zsh")
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-envs
+   '("PATH")))
