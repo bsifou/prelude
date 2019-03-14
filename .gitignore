@@ -19,7 +19,6 @@ session*
 .cask
 tramp
 /var/pcache
-refheap.el
 games
 .mc-lists.el
 .emacs.desktop
@@ -30,3 +29,6 @@ network-security.data
 prelude-cheatsheet.el
 prelude-cheatsheet.aux
 prelude-cheatsheet.log
+
+## customized by me
+transient
