@@ -35,9 +35,11 @@
                             reveal-in-osx-finder
                             sql-indent
                             exec-path-from-shell ;; fix path in Emacs by reading from .zshenv
+                            flycheck-clj-kondo
                             ))
 
 (require 'flycheck-joker)
+(require 'flycheck-clj-kondo)
 
 ;; (defun fci-hook ()
 ;;   (setq-default fci-rule-column 80)
@@ -248,29 +250,12 @@
 (custom-set-variables
  '(show-trailing-whitespace t))
 
-(flycheck-define-checker clj-kondo-clj
-  "See https://github.com/borkdude/clj-kondo"
-  :command ("clj-kondo" "--cache" "--lang" "clj" "--lint" "-")
-  :standard-input t
-  :error-patterns
-  ((error line-start "<stdin>:" line ":" column ": " (0+ not-newline) (or "error: " "Exception: ") (message) line-end)
-   (warning line-start "<stdin>:" line ":" column ": " (0+ not-newline) "warning: " (message) line-end))
-  :modes (clojure-mode clojurec-mode)
-  :predicate (lambda () (not (string= "edn" (file-name-extension (buffer-file-name)))))
-  ;; use this when you also use the joker linter, recommended!
-  :next-checkers ((error . clojure-joker) (warning . clojure-joker)))
+;; flycheck Clojure chain
 
-(flycheck-define-checker clj-kondo-cljs
-  "See https://github.com/borkdude/clj-kondo"
-  :command ("clj-kondo" "--cache" "--lang" "cljs" "--lint" "-")
-  :standard-input t
-  :error-patterns
-  ((error line-start "<stdin>:" line ":" column ": " (0+ not-newline) (or "error: " "Exception: ") (message) line-end)
-   (warning line-start "<stdin>:" line ":" column ": " (0+ not-newline) "warning: " (message) line-end))
-  :modes (clojurescript-mode)
-  :predicate (lambda () (not (string= "edn" (file-name-extension (buffer-file-name)))))
-  ;; use this when you also use the joker linter, recommended!
-  :next-checkers ((error . clojurescript-joker) (warning . clojurescript-joker)))
+(dolist (checker '(clj-kondo-clj clj-kondo-cljs clj-kondo-cljc))
+  (setq flycheck-checkers (cons checker (delq checker flycheck-checkers))))
 
-(add-to-list 'flycheck-checkers 'clj-kondo-clj)
-(add-to-list 'flycheck-checkers 'clj-kondo-cljs)
+(dolist (checkers '((clj-kondo-clj . clojure-joker)
+                    (clj-kondo-cljs . clojurescript-joker)
+                    (clj-kondo-cljc . clojure-joker)))
+  (flycheck-add-next-checker (car checkers) (cons 'error (cdr checkers))))
