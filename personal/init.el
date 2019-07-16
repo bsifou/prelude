@@ -250,12 +250,16 @@
 (custom-set-variables
  '(show-trailing-whitespace t))
 
-;; flycheck Clojure chain
+(load "~/Dropbox/dev/clojure/flycheck-clj-kondo/flycheck-clj-kondo.el")
 
-(dolist (checker '(clj-kondo-clj clj-kondo-cljs clj-kondo-cljc))
+;;;; setting up flycheck clj-kondo -> joker chain
+;; ensure that clj-kondo checkers are at front of checker list
+(dolist (checker '(clj-kondo-clj clj-kondo-cljs clj-kondo-cljc clj-kondo-edn))
   (setq flycheck-checkers (cons checker (delq checker flycheck-checkers))))
-
+;; clj-kondo calls joker after linting, even if there are errors
 (dolist (checkers '((clj-kondo-clj . clojure-joker)
                     (clj-kondo-cljs . clojurescript-joker)
-                    (clj-kondo-cljc . clojure-joker)))
+                    (clj-kondo-cljc . clojure-joker)
+                    (clj-kondo-edn . edn-joker)))
   (flycheck-add-next-checker (car checkers) (cons 'error (cdr checkers))))
+
