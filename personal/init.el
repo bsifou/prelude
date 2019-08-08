@@ -263,3 +263,4 @@
                     (clj-kondo-edn . edn-joker)))
   (flycheck-add-next-checker (car checkers) (cons 'error (cdr checkers))))
 
+(menu-bar-mode 0)
