@@ -36,10 +36,12 @@
                             sql-indent
                             exec-path-from-shell ;; fix path in Emacs by reading from .zshenv
                             flycheck-clj-kondo
+                            flycheck-rust
                             ))
 
 (require 'flycheck-joker)
 (require 'flycheck-clj-kondo)
+(require 'flycheck-rust)
 
 ;; (defun fci-hook ()
 ;;   (setq-default fci-rule-column 80)
@@ -264,3 +266,5 @@
   (flycheck-add-next-checker (car checkers) (cons 'error (cdr checkers))))
 
 (menu-bar-mode 0)
+
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
