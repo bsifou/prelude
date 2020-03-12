@@ -280,3 +280,4 @@
 (global-set-key [(hyper z)] 'undo)
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
+(global-set-key [(hyper x)] 'kill-region)
