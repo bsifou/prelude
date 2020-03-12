@@ -37,6 +37,7 @@
                             exec-path-from-shell ;; fix path in Emacs by reading from .zshenv
                             flycheck-clj-kondo
                             flycheck-rust
+                            rust-mode
                             ))
 
 (require 'flycheck-joker)
