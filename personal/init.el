@@ -282,3 +282,5 @@
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
 (global-set-key [(hyper x)] 'kill-region)
+
+(add-hook 'rust-mode-hook #'lsp)
