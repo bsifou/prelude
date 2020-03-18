@@ -38,6 +38,7 @@
                             flycheck-clj-kondo
                             flycheck-rust
                             rust-mode
+                            lsp-mode
                             ))
 
 (require 'flycheck-joker)
