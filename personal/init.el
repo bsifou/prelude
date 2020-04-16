@@ -39,6 +39,7 @@
                             flycheck-rust
                             rust-mode
                             lsp-mode
+                            adoc-mode
                             ))
 
 (require 'flycheck-joker)
