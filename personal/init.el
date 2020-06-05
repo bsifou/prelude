@@ -294,3 +294,5 @@
 (global-set-key [(hyper x)] 'kill-region)
 
 (add-hook 'rust-mode-hook #'lsp)
+
+(add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
