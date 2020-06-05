@@ -40,11 +40,20 @@
                             rust-mode
                             lsp-mode
                             adoc-mode
+                            anakondo
                             ))
 
 (require 'flycheck-joker)
 (require 'flycheck-clj-kondo)
 (require 'flycheck-rust)
+;; (require 'anakondo)
+
+;; ;; Enable anakondo-minor-mode in all Clojure buffers
+;; (add-hook 'clojure-mode-hook #'anakondo-minor-mode)
+;; ;; Enable anakondo-minor-mode in all ClojureScript buffers
+;; (add-hook 'clojurescript-mode-hook #'anakondo-minor-mode)
+;; ;; Enable anakondo-minor-mode in all cljc buffers
+;; (add-hook 'clojurec-mode-hook #'anakondo-minor-mode)
 
 ;; (defun fci-hook ()
 ;;   (setq-default fci-rule-column 80)
