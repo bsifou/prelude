@@ -297,3 +297,5 @@
 (add-hook 'rust-mode-hook #'lsp)
 
 (add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
+
+(set-background-color "grey15")
