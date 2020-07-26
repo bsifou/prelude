@@ -299,3 +299,4 @@
 (add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
 
 (set-background-color "grey15")
+(set-face-attribute 'region nil :background "#666")
