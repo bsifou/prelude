@@ -42,6 +42,7 @@
                             adoc-mode
                             flycheck-clj-kondo
                             anakondo
+                            git-gutter
                             ))
 
 (require 'flycheck-joker)
@@ -301,3 +302,5 @@
 (set-face-background 'default "grey15")
 (set-face-attribute 'region nil :background "#666")
 (print "Hello from personal/init.el")
+
+(global-git-gutter-mode +1)
