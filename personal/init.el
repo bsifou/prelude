@@ -298,5 +298,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
 
-(set-background-color "grey15")
+(set-face-background 'default "grey15")
 (set-face-attribute 'region nil :background "#666")
+(print "Hello from personal/init.el")
