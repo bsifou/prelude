@@ -308,3 +308,5 @@
 
 ;; tramp
 (setq tramp-terminal-type "tramp")
+(when (string-equal "localhost:10.0" (getenv "DISPLAY"))
+  (set-face-attribute 'default nil :height 102))
