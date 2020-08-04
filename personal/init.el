@@ -303,7 +303,7 @@
 (set-face-attribute 'region nil :background "#666")
 (print "Hello from personal/init.el")
 
-(when window-system
+(when (not window-system)
   (global-git-gutter-mode +1))
 
 ;; tramp
