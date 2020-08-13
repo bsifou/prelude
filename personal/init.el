@@ -310,3 +310,9 @@
 (setq tramp-terminal-type "tramp")
 (when (string-equal "localhost:10.0" (getenv "DISPLAY"))
   (set-face-attribute 'default nil :height 94))
+
+(unless window-system
+  (require 'mouse)
+  (xterm-mouse-mode t)
+  (defun track-mouse (e))
+  (setq mouse-sel-mode t))
