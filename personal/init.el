@@ -43,6 +43,7 @@
                             flycheck-clj-kondo
                             anakondo
                             git-gutter
+                            flycheck-inline
                             ))
 
 (require 'flycheck-joker)
@@ -316,3 +317,6 @@
   (xterm-mouse-mode t)
   (defun track-mouse (e))
   (setq mouse-sel-mode t))
+
+(with-eval-after-load 'flycheck
+  (add-hook 'flycheck-mode-hook #'flycheck-inline-mode))
