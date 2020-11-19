@@ -44,7 +44,7 @@
                             git-gutter
                             flycheck-inline
                             org-present
-                            vterm
+                            vterm ;; needs brew install cmake
                             ))
 
 (require 'flycheck-joker)
@@ -338,15 +338,17 @@
                  (org-remove-inline-images)
                  (org-present-show-cursor)
                  (org-present-read-write)))))
+;; vterm
 
-;; (add-hook
-;;  'term-mode-hook
-;;  (lambda() (setq show-trailing-whitespace nil)))
+;; https://stackoverflow.com/questions/9990370/how-to-disable-hl-line-feature-in-specified-mode
+(global-hl-line-mode)
+(make-variable-buffer-local 'global-hl-line-mode)
+(add-hook 'some-mode-hook (lambda () (setq global-hl-line-mode nil)))
 
-;; (add-hook
-;;  'vterm-mode-hook
-;;  (lambda()
-;;    (setq show-trailing-whitespace nil)
-;;    (setq global-hl-line-mode nil)))
+(add-hook
+ 'vterm-mode-hook
+ (lambda()
+   (setq global-hl-line-mode nil)
+   (setq show-trailing-whitespace nil)))
 
-(require 'vterm) ;; needs brew install cmake
+;; end vterm
