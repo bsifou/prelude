@@ -40,10 +40,10 @@
                             rust-mode
                             lsp-mode
                             adoc-mode
-                            flycheck-clj-kondo
                             anakondo
                             git-gutter
                             flycheck-inline
+                            org-present
                             ))
 
 (require 'flycheck-joker)
@@ -267,9 +267,9 @@
 (custom-set-variables
  '(show-trailing-whitespace t))
 
-;; (load "~/Dropbox/dev/clojure/flycheck-clj-kondo/flycheck-clj-kondo.el")
+(load "~/Dropbox/dev/clojure/flycheck-clj-kondo/flycheck-clj-kondo.el")
 
-;;;; setting up flycheck clj-kondo -> joker chain
+;;;; Setting up flycheck clj-kondo -> joker chain
 ;; ensure that clj-kondo checkers are at front of checker list
 (dolist (checker '(clj-kondo-clj clj-kondo-cljs clj-kondo-cljc clj-kondo-edn))
   (setq flycheck-checkers (cons checker (delq checker flycheck-checkers))))
@@ -320,3 +320,20 @@
 
 (with-eval-after-load 'flycheck
   (add-hook 'flycheck-mode-hook #'flycheck-inline-mode))
+
+;; org-present
+
+(eval-after-load "org-present"
+  '(progn
+     (add-hook 'org-present-mode-hook
+               (lambda ()
+                 (org-present-big)
+                 (org-display-inline-images)
+                 (org-present-hide-cursor)
+                 (org-present-read-only)))
+     (add-hook 'org-present-mode-quit-hook
+               (lambda ()
+                 (org-present-small)
+                 (org-remove-inline-images)
+                 (org-present-show-cursor)
+                 (org-present-read-write)))))
