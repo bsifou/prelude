@@ -44,6 +44,7 @@
                             git-gutter
                             flycheck-inline
                             org-present
+                            vterm
                             ))
 
 (require 'flycheck-joker)
@@ -337,3 +338,15 @@
                  (org-remove-inline-images)
                  (org-present-show-cursor)
                  (org-present-read-write)))))
+
+;; (add-hook
+;;  'term-mode-hook
+;;  (lambda() (setq show-trailing-whitespace nil)))
+
+;; (add-hook
+;;  'vterm-mode-hook
+;;  (lambda()
+;;    (setq show-trailing-whitespace nil)
+;;    (setq global-hl-line-mode nil)))
+
+(require 'vterm) ;; needs brew install cmake
