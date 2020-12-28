@@ -6,7 +6,8 @@
 ;; Author: Ryan Thompson
 ;; Created: Sat Apr  4 13:41:20 2015 (-0700)
 ;; Version: 4.13
-;; Package-Version: 20200310.25
+;; Package-Version: 20200520.1535
+;; Package-Commit: b9ca2566b867464c25b720e2148d240961c110e7
 ;; Package-Requires: ((emacs "24.4") (seq "0.5") (cl-lib "0.5") (memoize "1.1"))
 ;; URL: https://github.com/DarwinAwardWinner/ido-completing-read-plus
 ;; Keywords: ido, completion, convenience
@@ -84,6 +85,7 @@
 Note that when you update ido-completing-read+, this variable may
 not be updated until you restart Emacs.")
 
+(require 'nadvice)
 (require 'ido)
 (require 'seq)
 (require 'minibuf-eldef)
@@ -159,7 +161,7 @@ using it, so the initial value shouldn't matter.")))
   "Minibuffer depth of the most recent ido-cr+ activation.
 
 If this equals the current minibuffer depth, then the minibuffer
-is currently being used by ido-cr+, and ido-cr+ feature will be
+is currently being used by ido-cr+, and ido-cr+ features will be
 active. Otherwise, something else is using the minibuffer and
 ido-cr+ features will be deactivated to avoid interfering with
 the other command.
@@ -234,6 +236,30 @@ to a memoized copy of `ido-cr+-all-prefix-completions'.")
 Each element is a cons cell of (REMOVEP . TEXT), where REMOVEP is
 the prefix argument to `ido-restrict-to-matches' and TEXT is the
 pattern used to restrict.")
+
+(defvar ido-cr+-need-bug27807-workaround
+  (cl-letf*
+      ((ido-exit ido-exit)
+       ((symbol-function 'read-from-minibuffer)
+        (lambda (_prompt &optional initial-contents &rest _remaining-args)
+          (setq ido-exit 'takeprompt) ; Emulate pressing C-j in ido
+          (if (consp initial-contents)
+              (substring (car initial-contents) 0 (1- (cdr initial-contents)))
+            initial-contents)))
+       ;; Need to get the unadvised original of `ido-completing-read'
+       ;; because the advice is autoloaded, so calling it while
+       ;; loading the package will trigger a recursive load.
+       ((symbol-function 'ido-completing-read)
+        (advice--cd*r (symbol-function 'ido-completing-read)))
+       (input-before-point
+        (ido-completing-read "Pick: " '("aaa" "aab" "aac") nil nil '("aa" . 1))))
+    ;; If an initial position of 1 yields a 0-length string, then this
+    ;; Emacs does not have the bug fix and requires the workaround.
+    (= (length input-before-point) 0))
+  "If non-nil, enable the workaround for Emacs bug #27807.
+
+This variable is normally set when ido-cr+ is loaded, and should
+not need to be modified by users.")
 
 (defgroup ido-completing-read-plus nil
   "Extra features and compatibility for `ido-completing-read'."
@@ -708,9 +734,9 @@ See `completing-read' for the meaning of the arguments."
                     '("ido cannot handle the empty string as an option when `ido-enable-dot-prefix' is non-nil; see https://debbugs.gnu.org/cgi/bugreport.cgi?bug=26997")))
 
           ;; Fix ido's broken handling of cons-style INITIAL-INPUT on
-          ;; Emacsen older than 27.
+          ;; Emacsen older than 27. See Emacs bug #27807.
           (when (and (consp initial-input)
-                     (< emacs-major-version 27))
+                     ido-cr+-need-bug27807-workaround)
             ;; `completing-read' uses 0-based index while
             ;; `read-from-minibuffer' uses 1-based index.
             (cl-incf (cdr initial-input)))

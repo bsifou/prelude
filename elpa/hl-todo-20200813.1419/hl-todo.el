@@ -5,7 +5,8 @@
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
 ;; Homepage: https://github.com/tarsius/hl-todo
 ;; Keywords: convenience
-;; Package-Version: 20200103.1239
+;; Package-Version: 20200813.1419
+;; Package-Commit: 0598b98f63b623c1778cbd2e2f60b774b7a311b9
 
 ;; Package-Requires: ((emacs "25"))
 
@@ -252,7 +253,7 @@ including alphanumeric characters, cannot be used here."
       (goto-char (point-min))
       (while (hl-todo--search)
         (save-excursion
-	  (font-lock-fontify-region (match-beginning 0) (match-end 0) nil))))))
+          (font-lock-fontify-region (match-beginning 0) (match-end 0) nil))))))
 
 ;;;###autoload
 (define-globalized-minor-mode global-hl-todo-mode
@@ -260,7 +261,8 @@ including alphanumeric characters, cannot be used here."
 
 (defun hl-todo--turn-on-mode-if-desired ()
   (when (and (apply #'derived-mode-p hl-todo-include-modes)
-             (not (apply #'derived-mode-p hl-todo-exclude-modes)))
+             (not (apply #'derived-mode-p hl-todo-exclude-modes))
+             (not (bound-and-true-p enriched-mode)))
     (hl-todo-mode 1)))
 
 ;;;###autoload

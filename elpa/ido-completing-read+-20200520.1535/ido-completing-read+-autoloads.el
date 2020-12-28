@@ -14,7 +14,7 @@
 Minibuffer depth of the most recent ido-cr+ activation.
 
 If this equals the current minibuffer depth, then the minibuffer
-is currently being used by ido-cr+, and ido-cr+ feature will be
+is currently being used by ido-cr+, and ido-cr+ features will be
 active. Otherwise, something else is using the minibuffer and
 ido-cr+ features will be deactivated to avoid interfering with
 the other command.
