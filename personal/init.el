@@ -268,7 +268,7 @@
 (custom-set-variables
  '(show-trailing-whitespace t))
 
-(load "~/Dropbox/dev/clojure/flycheck-clj-kondo/flycheck-clj-kondo.el")
+;; (load "~/Dropbox/dev/clojure/flycheck-clj-kondo/flycheck-clj-kondo.el")
 
 ;;;; Setting up flycheck clj-kondo -> joker chain
 ;; ensure that clj-kondo checkers are at front of checker list
