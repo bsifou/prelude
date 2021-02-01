@@ -352,3 +352,28 @@
    (setq show-trailing-whitespace nil)))
 
 ;; end vterm
+
+;; clojure-lsp
+;; see https://emacs-lsp.github.io/lsp-mode/tutorials/clojure-guide/
+
+(add-hook 'clojure-mode-hook 'lsp)
+(add-hook 'clojurescript-mode-hook 'lsp)
+(add-hook 'clojurec-mode-hook 'lsp)
+
+(setq gc-cons-threshold (* 100 1024 1024)
+      read-process-output-max (* 1024 1024)
+      treemacs-space-between-root-nodes nil
+      company-idle-delay 0.0
+      company-minimum-prefix-length 1
+      lsp-lens-enable t
+      lsp-signature-auto-activate nil 
+                                        ; lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
+                                        ; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
+      )
+
+(setq lsp-clojure-custom-server-command '("bash" "-c" "/Users/borkdude/Downloads/clojure-lsp"))
+
+(setq lsp-diagnostics-provider :none)
+;; or just disable lsp-diagnostics-mode for a single buffer
+
+;; end clojure-lsp
