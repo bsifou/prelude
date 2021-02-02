@@ -367,12 +367,13 @@
       company-minimum-prefix-length 1
       lsp-lens-enable t
       lsp-signature-auto-activate nil 
+      lsp-clojure-custom-server-command '("bash" "-c" "/Users/borkdude/Downloads/clojure-lsp")
+      lsp-diagnostics-provider :none
       lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
-      ;; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
-      lsp-diagnostics-provider :none)
+                                        ; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
+      )
 
 ;; or just disable lsp-diagnostics-mode for a single buffer
-
 
 
 ;; end clojure-lsp
