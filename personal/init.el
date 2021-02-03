@@ -363,9 +363,10 @@
 (setq gc-cons-threshold (* 100 1024 1024)
       read-process-output-max (* 1024 1024)
       treemacs-space-between-root-nodes nil
+      lsp-headerline-breadcrumb-enable nil
       company-idle-delay 0.0
       company-minimum-prefix-length 1
-      lsp-lens-enable t
+      ;; lsp-lens-enable t
       lsp-signature-auto-activate nil 
       lsp-clojure-custom-server-command '("bash" "-c" "/Users/borkdude/Downloads/clojure-lsp")
       lsp-diagnostics-provider :none
