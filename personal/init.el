@@ -39,6 +39,7 @@
                             flycheck-rust
                             rust-mode
                             lsp-mode
+                            lsp-ui
                             adoc-mode
                             anakondo
                             git-gutter
