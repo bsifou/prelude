@@ -5,11 +5,11 @@
     (seq "1.11")
     (emacs "24.3"))
   :commit "01396a5eff9fa494285e0d3139838231c05e3948" :authors
-  (("Sebastian Wiesner" . "swiesner@lunaryorn.com"))
+  '(("Sebastian Wiesner" . "swiesner@lunaryorn.com"))
   :maintainer
-  ("Clément Pit-Claudel" . "clement.pitclaudel@live.com")
+  '("Clément Pit-Claudel" . "clement.pitclaudel@live.com")
   :keywords
-  ("convenience" "languages" "tools")
+  '("convenience" "languages" "tools")
   :url "http://www.flycheck.org")
 ;; Local Variables:
 ;; no-byte-compile: t

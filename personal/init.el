@@ -20,7 +20,7 @@
                             neotree
                             auto-highlight-symbol
                             haskell-mode
-                            intero
+                            ;; intero
                             flymake-hlint
                             ;; hlint-refactor uses https://github.com/mpickering/apply-refact
                             ;; install by running the following outside a project dir: stack --resolver=nightly install apply-refact
@@ -38,8 +38,7 @@
                             flycheck-clj-kondo
                             flycheck-rust
                             rust-mode
-                            lsp-mode
-                            lsp-ui
+                            lsp-mode lsp-ui lsp-treemacs
                             adoc-mode
                             anakondo
                             git-gutter
@@ -369,7 +368,7 @@
       company-minimum-prefix-length 1
       ;; lsp-lens-enable t
       lsp-file-watch-threshold 10000
-      lsp-signature-auto-activate nil 
+      lsp-signature-auto-activate nil
       lsp-clojure-custom-server-command '("bash" "-c" "/Users/borkdude/Dropbox/bin/clojure-lsp")
       lsp-diagnostics-provider :none
       lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
