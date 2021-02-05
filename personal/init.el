@@ -374,8 +374,18 @@
       lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
                                         ; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
       )
-
 ;; or just disable lsp-diagnostics-mode for a single buffer
 
+(setq lsp-ui-peek-list-width 60
+      lsp-ui-doc-enable nil
+      ;; lsp-ui-doc-max-width 200
+      ;; lsp-ui-doc-max-height 30
+      ;; lsp-signature-auto-activate nil
+      lsp-ui-peek-fontify 'always
+      lsp-ui-sideline-show-code-actions nil)
+
+(defun find-refs ()
+  (interactive)
+  (lsp-find-references t))
 
 ;; end clojure-lsp
