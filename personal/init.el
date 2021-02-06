@@ -38,7 +38,7 @@
                             flycheck-clj-kondo
                             flycheck-rust
                             rust-mode
-                            lsp-mode lsp-ui lsp-treemacs
+                            lsp-mode ;; lsp-ui lsp-treemacs
                             adoc-mode
                             anakondo
                             git-gutter
@@ -376,13 +376,13 @@
       )
 ;; or just disable lsp-diagnostics-mode for a single buffer
 
-(setq lsp-ui-peek-list-width 60
-      lsp-ui-doc-enable nil
-      ;; lsp-ui-doc-max-width 200
-      ;; lsp-ui-doc-max-height 30
-      ;; lsp-signature-auto-activate nil
-      lsp-ui-peek-fontify 'always
-      lsp-ui-sideline-show-code-actions nil)
+;; (setq lsp-ui-peek-list-width 60
+;;       lsp-ui-doc-enable nil
+;;       ;; lsp-ui-doc-max-width 200
+;;       ;; lsp-ui-doc-max-height 30
+;;       ;; lsp-signature-auto-activate nil
+;;       lsp-ui-peek-fontify 'always
+;;       lsp-ui-sideline-show-code-actions nil)
 
 (defun find-refs ()
   (interactive)
