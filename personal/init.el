@@ -373,6 +373,7 @@
       lsp-diagnostics-provider :none
       lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
                                         ; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
+
       )
 ;; or just disable lsp-diagnostics-mode for a single buffer
 
