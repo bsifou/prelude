@@ -1,4 +1,4 @@
-;;; prelude-haskell.el --- Emacs Prelude: Nice config for Haskell programming.
+;;; prelude-selectrum.el --- Selectrum setup
 ;;
 ;; Copyright © 2011-2021 Bozhidar Batsov
 ;;
@@ -9,7 +9,8 @@
 
 ;;; Commentary:
 
-;; Nice config for Haskell programming.
+;; Selectrum-related config.  Selectrum is a smart framework for minibuffer
+;; completion/filtering/selection (think of ivy/ido).
 
 ;;; License:
 
@@ -29,22 +30,25 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
+(prelude-require-packages '(selectrum selectrum-prescient))
 
-(require 'prelude-programming)
-(prelude-require-packages '(haskell-mode))
+;;; Selectrum
+;;
+;; selectrum is a powerful alternative to the popular ido-mode and ivy-mode.
 
-(with-eval-after-load 'haskell-mode
-  (defun prelude-haskell-mode-defaults ()
-    (subword-mode +1)
-    (eldoc-mode +1)
-    (haskell-indentation-mode +1)
-    (interactive-haskell-mode +1))
+(require 'selectrum)
+(require 'selectrum-prescient)
+(require 'diminish)
 
-  (setq prelude-haskell-mode-hook 'prelude-haskell-mode-defaults)
+(selectrum-mode 1)
+(diminish 'selectrum-mode)
 
-  (add-hook 'haskell-mode-hook (lambda ()
-                                 (run-hooks 'prelude-haskell-mode-hook))))
+;; to make sorting and filtering more intelligent
+(selectrum-prescient-mode +1)
 
-(provide 'prelude-haskell)
+;; to save your command history on disk, so the sorting gets more
+;; intelligent over time
+(prescient-persist-mode +1)
 
-;;; prelude-haskell.el ends here
+(provide 'prelude-selectrum)
+;;; prelude-selectrum.el ends here

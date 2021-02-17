@@ -30,8 +30,8 @@ prelude-cheatsheet.el
 prelude-cheatsheet.aux
 prelude-cheatsheet.log
 transient/
+.cache/
+.lsp-session*
 
 ## customized by me
-transient
-.lsp-session-v1
 elpa/vterm-**/build*
