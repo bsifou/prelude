@@ -17,12 +17,15 @@ ARGS specifies additional arguments that are passed to hlint.
 \(fn &optional ARGS)" t nil)
 
 (autoload 'hlint-refactor-refactor-at-point "hlint-refactor" "\
-Apply the hlint suggestion at point.
-
-\(fn)" t nil)
+Apply the hlint suggestion at point." t nil)
 
 (autoload 'hlint-refactor-mode "hlint-refactor" "\
 Automatically apply hlint suggestions
+
+If called interactively, enable Hlint-Refactor mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 

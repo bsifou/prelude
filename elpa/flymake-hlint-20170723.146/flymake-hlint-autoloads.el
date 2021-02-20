@@ -10,9 +10,7 @@
 ;;; Generated autoloads from flymake-hlint.el
 
 (autoload 'flymake-hlint-load "flymake-hlint" "\
-Configure flymake mode to check the current buffer's hlint syntax.
-
-\(fn)" t nil)
+Configure flymake mode to check the current buffer's hlint syntax." t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flymake-hlint" '("flymake-hlint-")))
 

@@ -369,12 +369,11 @@
       ;; lsp-lens-enable t
       lsp-file-watch-threshold 10000
       lsp-signature-auto-activate nil
-      lsp-clojure-custom-server-command '("bash" "-c" "/Users/borkdude/Dropbox/bin/clojure-lsp")
+      lsp-clojure-custom-server-command '("/Users/borkdude/Dropbox/bin/clojure-lsp")
       lsp-diagnostics-provider :none
-      lsp-enable-indentation nil ; uncomment to use cider indentation instead of lsp
-                                        ; lsp-enable-completion-at-point nil ; uncomment to use cider completion instead of lsp
-
-      )
+      lsp-enable-indentation nil ;; uncomment to use cider indentation instead of lsp
+      ;; lsp-enable-completion-at-point nil ;; uncomment to use cider completion instead of lsp
+)
 ;; or just disable lsp-diagnostics-mode for a single buffer
 
 ;; (setq lsp-ui-peek-list-width 60

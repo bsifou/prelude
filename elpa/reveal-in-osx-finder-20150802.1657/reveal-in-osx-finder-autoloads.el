@@ -12,9 +12,7 @@
 
 (autoload 'reveal-in-osx-finder "reveal-in-osx-finder" "\
 Reveal the file associated with the current buffer in the OS X Finder.
-In a dired buffer, it will open the current directory.
-
-\(fn)" t nil)
+In a dired buffer, it will open the current directory." t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "reveal-in-osx-finder" '("reveal-in-osx-finder-as")))
 

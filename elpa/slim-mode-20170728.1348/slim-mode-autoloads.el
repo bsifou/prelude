@@ -18,7 +18,7 @@ Major mode for editing Slim files.
 
 (add-to-list 'auto-mode-alist '("\\.slim\\'" . slim-mode))
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "slim-mode" '("slim-" "html-tags")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "slim-mode" '("html-tags" "slim-")))
 
 ;;;***
 

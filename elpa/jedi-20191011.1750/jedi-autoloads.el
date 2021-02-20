@@ -19,19 +19,14 @@ of `jedi:setup', like this::
 
 Note that this function calls `auto-complete-mode' if it is not
 already enabled, for people who don't call `global-auto-complete-mode'
-in their Emacs configuration.
-
-\(fn)" t nil)
+in their Emacs configuration." t nil)
 
 (autoload 'jedi:complete "jedi" "\
 Complete code at point.
 
 \(fn &key (EXPAND ac-expand-on-auto-complete))" t nil)
 
-(autoload 'jedi:auto-complete-mode "jedi" "\
-
-
-\(fn)" nil nil)
+(autoload 'jedi:auto-complete-mode "jedi" nil nil nil)
 
 (setq jedi:setup-function #'jedi:ac-setup jedi:mode-function #'jedi:auto-complete-mode)
 

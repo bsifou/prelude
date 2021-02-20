@@ -13,9 +13,7 @@
 (autoload 'find-number-at-point "operate-on-number" "\
 Search the current line till EOL for a number.
 If a pure number is found, move point to the end of the number
-and return the value.  Raise an error otherwise.
-
-\(fn)" t nil)
+and return the value.  Raise an error otherwise." t nil)
 
 (autoload 'apply-operation-to-number-at-point "operate-on-number" "\
 Apply an operation specified by KEY on a number at point.

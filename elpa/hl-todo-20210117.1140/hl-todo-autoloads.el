@@ -12,7 +12,14 @@
 (autoload 'hl-todo-mode "hl-todo" "\
 Highlight TODO and similar keywords in comments and strings.
 
+If called interactively, enable Hl-Todo mode if ARG is positive,
+and disable it if ARG is zero or negative.  If called from Lisp,
+also enable the mode if ARG is omitted or nil, and toggle it if
+ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
+
+(put 'global-hl-todo-mode 'globalized-minor-mode t)
 
 (defvar global-hl-todo-mode nil "\
 Non-nil if Global Hl-Todo mode is enabled.
@@ -55,9 +62,7 @@ Use `occur' to find all TODO or similar keywords.
 This actually finds a superset of the highlighted keywords,
 because it uses a regexp instead of a more sophisticated
 matcher.  It also finds occurrences that are not within a
-string or comment.
-
-\(fn)" t nil)
+string or comment." t nil)
 
 (autoload 'hl-todo-insert "hl-todo" "\
 Insert TODO or similar keyword.

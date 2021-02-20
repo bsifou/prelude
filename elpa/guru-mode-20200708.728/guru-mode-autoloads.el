@@ -12,7 +12,14 @@
 (autoload 'guru-mode "guru-mode" "\
 A minor mode that teaches you to use Emacs effectively.
 
+If called interactively, enable Guru mode if ARG is positive, and
+disable it if ARG is zero or negative.  If called from Lisp, also
+enable the mode if ARG is omitted or nil, and toggle it if ARG is
+`toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
+
+(put 'guru-global-mode 'globalized-minor-mode t)
 
 (defvar guru-global-mode nil "\
 Non-nil if Guru-Global mode is enabled.

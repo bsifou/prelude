@@ -19,6 +19,8 @@ Linum mode is a buffer-local minor mode.
 
 \(fn &optional ARG)" t nil)
 
+(put 'global-nlinum-mode 'globalized-minor-mode t)
+
 (defvar global-nlinum-mode nil "\
 Non-nil if Global Nlinum mode is enabled.
 See the `global-nlinum-mode' command

@@ -27,6 +27,8 @@ directly below the error reported location.
 
 \(fn &optional ARG)" t nil)
 
+(put 'global-flycheck-inline-mode 'globalized-minor-mode t)
+
 (defvar global-flycheck-inline-mode nil "\
 Non-nil if Global Flycheck-Inline mode is enabled.
 See the `global-flycheck-inline-mode' command
@@ -49,7 +51,7 @@ See `flycheck-inline-mode' for more information on Flycheck-Inline mode.
 
 \(fn &optional ARG)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck-inline" '("turn-on-flycheck-inline" "flycheck-inline-")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck-inline" '("flycheck-inline-" "turn-on-flycheck-inline")))
 
 ;;;***
 

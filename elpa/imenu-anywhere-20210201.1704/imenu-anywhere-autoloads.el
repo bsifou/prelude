@@ -21,33 +21,25 @@ later with `xref-pop-marker-stack'.
 
 Sorting is done within each buffer and takes into account items'
 length. Thus more recent buffers in `buffer-list' and shorter
-entries have higher priority.
-
-\(fn)" t nil)
+entries have higher priority." t nil)
 
 (autoload 'ido-imenu-anywhere "imenu-anywhere" "\
 IDO interface for `imenu-anywhere'.
 This is a simple wrapper around `imenu-anywhere' which uses
 `ido-completing-read' as `completing-read-function'. If you use
 `ido-ubiquitous' you might be better off by using `ido-anywhere'
-instead, but there should be little or no difference.
-
-\(fn)" t nil)
+instead, but there should be little or no difference." t nil)
 
 (autoload 'ivy-imenu-anywhere "imenu-anywhere" "\
 IVY interface for `imenu-anywhere'
 This is a simple wrapper around `imenu-anywhere' which uses
-`ivy-completing-read' as `completing-read-function'.
-
-\(fn)" t nil)
+`ivy-completing-read' as `completing-read-function'." t nil)
 
 (autoload 'helm-imenu-anywhere "imenu-anywhere" "\
 `helm' interface for `imenu-anywhere'.
 Sorting is in increasing length of imenu symbols within each
 buffer.  The pyramidal view allows distinguishing different
-buffers.
-
-\(fn)" t nil)
+buffers." t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "imenu-anywhere" '("helm-imenu-anywhere-candidates" "imenu-anywhere-")))
 

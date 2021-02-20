@@ -10,9 +10,7 @@
 ;;; Generated autoloads from org-present.el
 
 (autoload 'org-present "org-present" "\
-init.
-
-\(fn)" t nil)
+init." t nil)
 
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-present" '("org-present-")))
 

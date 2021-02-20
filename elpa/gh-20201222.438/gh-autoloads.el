@@ -44,7 +44,7 @@
 ;;;### (autoloads nil "gh-gist" "gh-gist.el" (0 0 0 0))
 ;;; Generated autoloads from gh-gist.el
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "gh-gist" '("gh-gist-" "constructor")))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "gh-gist" '("constructor" "gh-gist-")))
 
 ;;;***
 
