@@ -4946,10 +4946,13 @@ RENDER-ALL - nil if only the signature should be rendered."
         :background-color (face-attribute 'tooltip :background)
         :height 6
         :width 60
+        :border-width 10
+        :border-color (face-attribute 'tooltip :background)
         :min-width 60)
   "Params for signature and `posframe-show'.")
 
 (defun lsp-signature-posframe (str)
+  "Use posframe to show the STR signatureHelp string."
   (if str
       (apply #'posframe-show
              (with-current-buffer (get-buffer-create "*lsp-signature*")
@@ -5019,11 +5022,13 @@ It will show up only if current point has signature help."
             (active-signature? (or lsp--signature-last-index active-signature? 0))
             (_ (setq lsp--signature-last-index active-signature?))
             ((signature &as &SignatureInformation? :label :parameters?) (seq-elt signatures active-signature?))
-            (prefix (concat (propertize (format " %s/%s"
-                                                (1+ active-signature?)
-                                                (length signatures))
-                                        'face 'success)
-                            " │ "))
+            (prefix (if (not (cl-rest signatures))
+                        ""
+                      (concat (propertize (format " %s/%s"
+                                                  (1+ active-signature?)
+                                                  (length signatures))
+                                          'face 'success)
+                              " ")))
             (method-docs (when
                              (and lsp-signature-render-documentation
                                   (or (not (numberp lsp-signature-doc-lines)) (< 0 lsp-signature-doc-lines)))
