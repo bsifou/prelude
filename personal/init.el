@@ -45,6 +45,7 @@
                             flycheck-inline
                             org-present
                             vterm ;; needs brew install cmake
+                            markdown-toc
                             ))
 
 (require 'flycheck-joker)
@@ -364,7 +365,7 @@
       read-process-output-max (* 1024 1024)
       treemacs-space-between-root-nodes nil
       lsp-headerline-breadcrumb-enable nil
-      company-idle-delay 0.2
+      company-idle-delay 0.5
       company-minimum-prefix-length 1
       ;; lsp-lens-enable t
       lsp-file-watch-threshold 10000
