@@ -390,4 +390,16 @@
   (interactive)
   (lsp-find-references t))
 
+(defun find-definition ()
+  "Try to find definition of cursor via LSP otherwise fallback to cider."
+  (interactive)
+  (let ((cursor (point)))
+    (lsp-find-definition)
+    (when (eq cursor (point))
+      (cider-find-var))))
+
+(define-key clojure-mode-map (kbd "M-.") #'find-definition)
+(define-key clojurec-mode-map (kbd "M-.") #'find-definition)
+(define-key clojurescript-mode-map (kbd "M-.") #'find-definition)
+
 ;; end clojure-lsp
