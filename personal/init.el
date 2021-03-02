@@ -368,6 +368,7 @@
       company-idle-delay 0.5
       company-minimum-prefix-length 1
       ;; lsp-lens-enable t
+      lsp-enable-file-watchers nil
       lsp-file-watch-threshold 10000
       lsp-signature-auto-activate nil
       lsp-clojure-custom-server-command '("/Users/borkdude/Dropbox/bin/clojure-lsp")
