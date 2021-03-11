@@ -405,4 +405,15 @@
 (define-key clojurec-mode-map (kbd "M-.") #'find-definition)
 (define-key clojurescript-mode-map (kbd "M-.") #'find-definition)
 
+;;;; Setting up flycheck clj-kondo -> joker chain
+;; ensure that clj-kondo checkers are at front of checker list
+;; (dolist (checker '(clj-kondo-clj clj-kondo-cljs clj-kondo-cljc clj-kondo-edn))
+;;   (setq flycheck-checkers (cons checker (delq checker flycheck-checkers))))
+;; ;; clj-kondo calls lsp after linting, even if there are errors
+;; (dolist (checkers '((clj-kondo-clj . lsp)
+;;                     (clj-kondo-cljs . lsp)
+;;                     (clj-kondo-cljc . lsp)
+;;                     (clj-kondo-edn . lsp)))
+;;   (flycheck-add-next-checker (car checkers) (cons 'error (cdr checkers))))
+
 ;; end clojure-lsp
