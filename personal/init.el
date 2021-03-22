@@ -402,6 +402,7 @@
       (cider-find-var))))
 
 (define-key clojure-mode-map (kbd "M-.") #'find-definition)
+(define-key cider-mode-map (kbd "M-.") #'find-definition)
 (define-key clojurec-mode-map (kbd "M-.") #'find-definition)
 (define-key clojurescript-mode-map (kbd "M-.") #'find-definition)
 
