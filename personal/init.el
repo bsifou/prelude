@@ -420,3 +420,5 @@
 ;;   (flycheck-add-next-checker (car checkers) (cons 'error (cdr checkers))))
 
 ;; end clojure-lsp
+
+(setq clojure-align-separator 'entire)
