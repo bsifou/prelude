@@ -1,0 +1,2 @@
+;;; Generated package description from klere-theme.el  -*- no-byte-compile: t -*-
+(define-package "klere-theme" "20210320.1912" "A dark theme with lambent color highlights and incremental grays" '((emacs "24")) :commit "f9eacacc00455e6c42961ec41f24f864c2a05ace" :authors '(("Wamm K. D." . "jaft.r@outlook.com")) :maintainer '("Wamm K. D." . "jaft.r@outlook.com") :url "https://codeberg.org/WammKD/emacs-klere-theme")

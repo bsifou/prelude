@@ -267,7 +267,7 @@
    '("PATH")))
 
 (custom-set-variables
- '(show-trailing-whitespace t))
+ '(show-trailing-whitespace nil))
 
 ;; (load "~/Dropbox/dev/clojure/flycheck-clj-kondo/flycheck-clj-kondo.el")
 
@@ -302,10 +302,10 @@
 
 (add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
 
+(load-theme 'graphene-meta)
 (set-face-background 'default "grey15")
 (set-face-attribute 'region nil :background "#666")
 (print "Hello from personal/init.el")
-
 (when (not window-system)
   (global-git-gutter-mode +1))
 
@@ -373,9 +373,9 @@
       lsp-enable-file-watchers nil
       lsp-file-watch-threshold 10000
       lsp-signature-auto-activate nil
-      lsp-clojure-custom-server-command '("/Users/borkdude/Dropbox/bin/clojure-lsp")
+      lsp-clojure-custom-server-command '("/usr/local/bin/clojure-lsp")
       lsp-diagnostics-provider :none
-      lsp-enable-indentation nil ;; uncomment to use cider indentation instead of lsp
+      lsp-enable-indentation nil ;; uncomment touse cider indentation instead of lsp
       ;; lsp-enable-completion-at-point nil ;; uncomment to use cider completion instead of lsp
 
       lsp-completion-provider :capf)
@@ -422,3 +422,24 @@
 ;; end clojure-lsp
 
 (setq clojure-align-separator 'entire)
+
+(set-face-attribute 'default nil
+                    :family "SF Mono2"
+                    :height 120
+                    :weight 'normal
+                    :width 'normal)
+
+(setq prelude-whitespace nil)
+
+(scroll-bar-mode -1)
+(nyan-mode +1)
+
+
+;; (add-hook 'prog-mode (lambda ()
+;;                        (whitespace-mode nil)))
+
+;; (setq show-trailing-whitespace nil)
+
+;;psfd 
+(setq line-spacing 0.1)
+(global-visual-line-mode +1)
