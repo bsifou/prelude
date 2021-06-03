@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- projectile-ag
- rgrep
+ clojure-mode
+ clojurec-mode
+ eval-region
  customize-themes
+ package-list-packages
+ package-refresh-contents
  package-install
- cider-jack-in-clj
- paredit-mode
- cider-clojuredocs
 )
 
 ;; ----- smex-data -----
@@ -21,12 +21,12 @@
  (lsp-disconnect . 18)
  (lsp-install-server . 3)
  (html-mode . 1)
- (clojure-mode . 4)
+ (clojure-mode . 6)
  (clojurescript-mode . 2)
  (rgrep . 3)
  (customize . 13)
  (set-face-font . 1)
- (customize-themes . 4)
+ (customize-themes . 11)
  (lsp-mode . 2)
  (cider-jack-in . 13)
  (lsp-describe-session . 6)
@@ -34,7 +34,7 @@
  (projectile-dired . 4)
  (projectile-recentf . 1)
  (cider-inspect . 1)
- (cider-jack-in-clj . 23)
+ (cider-jack-in-clj . 24)
  (dired-up-directory . 1)
  (lsp-format-buffer . 3)
  (visual-line-mode . 6)
@@ -44,10 +44,10 @@
  (speedbar . 3)
  (speedbar-frame-mode . 1)
  (speedbar-mode . 1)
- (clojurec-mode . 7)
+ (clojurec-mode . 8)
  (neotree-mode . 3)
  (cider-connect-clj . 7)
- (package-install . 5)
+ (package-install . 9)
  (neotree . 3)
  (scroll-bar-mode . 8)
  (projectile-find-file . 1)
@@ -55,7 +55,7 @@
  (fringe-mode . 8)
  (nyan-mode . 1)
  (cider-connect-cljs . 24)
- (cider-jack-in-cljs . 46)
+ (cider-jack-in-cljs . 53)
  (lsp-format-region . 2)
  (cider-format-buffer . 1)
  (toggle-word-wrap . 4)
@@ -86,5 +86,10 @@
  (ivy-clojuredocs . 1)
  (ivy-clojuredocs-at-point . 1)
  (cider-clojuredocs . 2)
- (paredit-mode . 2)
+ (paredit-mode . 3)
+ (smartparens-mode . 1)
+ (eshell . 1)
+ (package-list-packages . 2)
+ (package-refresh-contents . 1)
+ (eval-region . 1)
 )

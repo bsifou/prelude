@@ -302,9 +302,11 @@
 
 (add-to-list 'auto-mode-alist '("\\.adoc\\'" . adoc-mode))
 
-(load-theme 'graphene-meta)
-(set-face-background 'default "grey15")
-(set-face-attribute 'region nil :background "#666")
+;; (load-theme 'graphene-meta)
+
+;; (set-face-background 'default "grey15")
+;; (set-face-attribute 'region nil :background "#666")
+
 (print "Hello from personal/init.el")
 (when (not window-system)
   (global-git-gutter-mode +1))
@@ -441,5 +443,21 @@
 ;; (setq show-trailing-whitespace nil)
 
 ;;psfd 
-(setq line-spacing 0.1)
+(setq line-spacing 0.2)
 (global-visual-line-mode +1)
+
+
+(require 'modus-themes)
+
+;; ;; Your customisations here.  For example:
+;; (setq modus-themes-bold-constructs t
+;;       modus-themes-mode-line '3d)
+
+;; Load the theme files before enabling a theme (else you get an error).
+(modus-themes-load-themes)
+
+;; Enable the theme of your preference:
+(modus-themes-load-vivendi)
+
+;; Optionally add a key binding for the toggle between the themes:
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
